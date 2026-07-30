@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const BLOOD_GROUPS = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+const LOCATIONS = ['Chennai','Coimbatore','Madurai','Tiruchirappalli','Salem','Tirunelveli','Vellore','Erode','Thoothukudi','Dindigul','Thanjavur','Ranipet','Sivakasi','Karur','Udhagamandalam','Hosur','Nagercoil','Kanchipuram','Kumarapalayam','Karaikkudi','Neyveli','Cuddalore','Kumbakonam','Tiruvannamalai','Pollachi','Rajapalayam','Gudiyatham','Pudukkottai','Vaniyambadi','Ambur','Nagapattinam'];
 const empty = { name: '', blood_group: 'A+', contact: '', college: '', location: '' };
 
 const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent transition-all duration-200 placeholder-gray-400";
@@ -49,12 +50,15 @@ export default function DonorForm({ onSubmit, initial, onCancel }) {
             <input required name="contact" value={form.contact} onChange={handle} placeholder="e.g. +91 9876543210" className={inputCls} />
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">College Name</label>
+            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">College Name <span className="normal-case text-gray-400 font-normal">(Students only – optional)</span></label>
             <input name="college" value={form.college} onChange={handle} placeholder="e.g. MIT College" className={inputCls} />
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Location</label>
-            <input name="location" value={form.location} onChange={handle} placeholder="City / District" className={inputCls} />
+            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Location *</label>
+            <select required name="location" value={form.location} onChange={handle} className={inputCls}>
+              <option value="">-- Select District --</option>
+              {LOCATIONS.map(l => <option key={l}>{l}</option>)}
+            </select>
           </div>
         </div>
 

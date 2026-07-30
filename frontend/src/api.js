@@ -1,4 +1,4 @@
-const BASE = 'http://127.0.0.1:8000/api';
+const BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
 
 export const getDonors = (blood_group = '') =>
   fetch(`${BASE}/donors/${blood_group ? `?blood_group=${blood_group}` : ''}`).then(r => r.json());

@@ -2,7 +2,6 @@ export default function Sidebar({ page, setPage }) {
   const links = [
     { id: 'dashboard', icon: '📊', label: 'Dashboard' },
     { id: 'donors',    icon: '🩸', label: 'Donors'    },
-    { id: 'add',       icon: '➕', label: 'Add Donor'  },
   ];
 
   return (
