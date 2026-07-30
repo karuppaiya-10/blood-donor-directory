@@ -28,7 +28,7 @@ export default function App() {
         <Sidebar page={page} setPage={handlePageChange} />
 
         {/* Main content */}
-        <div className="flex-1 ml-20 sm:ml-56 min-h-screen">
+        <div className="flex-1 sm:ml-56 min-h-screen pb-16 sm:pb-0">
           {/* Top bar */}
           <header className="bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between sticky top-0 z-30 shadow-sm">
             <div>
