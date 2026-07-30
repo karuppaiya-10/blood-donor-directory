@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blood-donor-directory.vercel.app/sitemap.xml
