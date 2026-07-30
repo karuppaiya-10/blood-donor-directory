@@ -7,6 +7,7 @@ const BLOOD_GROUPS = ['', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 
 export default function Donors({ donors, onRefresh, showForm, setShowForm }) {
   const [filter, setFilter]   = useState('');
+  const [search, setSearch]   = useState('');
   const [editing, setEditing] = useState(null);
   const [visible, setVisible] = useState(true);
 
@@ -16,7 +17,11 @@ export default function Donors({ donors, onRefresh, showForm, setShowForm }) {
   const handleUpdate = async (data) => { await updateDonor(editing.id, data); setEditing(null); reload(); };
   const handleDelete = async (id)   => { await deleteDonor(id); reload(); };
 
-  const filtered = filter ? donors.filter(d => d.blood_group === filter) : donors;
+  const q = search.toLowerCase();
+  const filtered = donors.filter(d =>
+    (!filter || d.blood_group === filter) &&
+    (!q || d.name?.toLowerCase().includes(q) || d.location?.toLowerCase().includes(q) || d.blood_group?.toLowerCase().includes(q))
+  );
 
   return (
     <div className="space-y-6">
@@ -30,6 +35,21 @@ export default function Donors({ donors, onRefresh, showForm, setShowForm }) {
           className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 rounded-xl text-sm font-semibold shadow-sm active:scale-95 transition-all duration-150">
           ➕ Add Donor
         </button>
+      </div>
+
+      {/* Search */}
+      <div className="relative">
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-base">🔍</span>
+        <input
+          type="text"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search by name, district or blood group…"
+          className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-300 bg-white shadow-sm"
+        />
+        {search && (
+          <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-red-500 text-lg leading-none">×</button>
+        )}
       </div>
 
       {/* Add / Edit Form */}
