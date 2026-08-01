@@ -3,8 +3,8 @@ services:
     name: blood-donor-backend
     runtime: python
     rootDir: backend
-    buildCommand: pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput
-    startCommand: gunicorn blood_directory.wsgi:application
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: python manage.py migrate && gunicorn blood_directory.wsgi:application
     envVars:
       - key: SECRET_KEY
         generateValue: true
