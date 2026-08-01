@@ -12,7 +12,3 @@ services:
         value: "False"
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: ALLOWED_HOSTS
-        value: "blood-donor-backend.onrender.com"
-      - key: CORS_ALLOWED_ORIGINS
-        value: "https://your-app.vercel.app"
