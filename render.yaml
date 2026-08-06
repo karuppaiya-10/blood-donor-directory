@@ -1,3 +1,9 @@
+databases:
+  - name: blood-donor-db
+    plan: free
+    databaseName: blood_donor
+    user: blood_donor_user
+
 services:
   - type: web
     name: blood-donor-backend
@@ -12,3 +18,7 @@ services:
         value: "False"
       - key: PYTHON_VERSION
         value: "3.11.0"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: blood-donor-db
+          property: connectionString
