@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const BLOOD_GROUPS = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
-const LOCATIONS = ['Chennai','Coimbatore','Madurai','Tiruchirappalli','Salem','Tirunelveli','Vellore','Erode','Thoothukudi','Dindigul','Thanjavur','Ranipet','Sivakasi','Karur','Udhagamandalam','Hosur','Nagercoil','Kanchipuram','Kumarapalayam','Karaikkudi','Neyveli','Cuddalore','Kumbakonam','Tiruvannamalai','Pollachi','Rajapalayam','Gudiyatham','Pudukkottai','Vaniyambadi','Ambur','Nagapattinam'];
+const LOCATIONS = ['Ariyalur','Chengalpattu','Chennai','Coimbatore','Cuddalore','Dharmapuri','Dindigul','Erode','Kallakurichi','Kanchipuram','Kanyakumari','Karur','Krishnagiri','Madurai','Mayiladuthurai','Nagapattinam','Namakkal','Nilgiris','Perambalur','Pudukkottai','Ramanathapuram','Ranipet','Salem','Sivaganga','Tenkasi','Thanjavur','Theni','Thoothukudi','Tiruchirappalli','Tirunelveli','Tirupathur','Tiruppur','Tiruvannamalai','Tiruvarur','Vellore','Viluppuram','Virudhunagar','Krishnagiri'];
 const empty = { name: '', blood_group: 'A+', contact: '', college: '', location: '' };
 
 const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent transition-all duration-200 placeholder-gray-400";
